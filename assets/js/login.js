@@ -7,12 +7,19 @@ class Login{
  
   
   static login=(mat,pas)=>{
-    this.endpoint+=`?m(atricula=${mat}&senha${pas}`
+    this.endpoint+=`?matricula=${mat}&senha=${pas}`;
     fetch(this.endpoint)
-    .then(res.endpoint)
-    .then(res=>res.json())
+    .then(res=>res.json())     
     .then(res=>{
-      console.log(res);
+      if(res){
+        this.logado=true;
+        this.matlogado=mat;
+        this.nomelogado=res.nome;
+        this.acessologado=res.acesso;
+        console.log(res);
+      }else{
+        console.log("Usuario não encontrado");
+      }
     })
     
   }
