@@ -3,11 +3,13 @@ class Login{
   static matlogado=null;
   static nomelogado=null;
   static acessologado=null;
+  static estilocss=null;
   static endpoint="https://login.john-helderheld.repl.co/";
  
   
   static login=(mat,pas)=>{
-    this.endpoint+=`?matricula=${mat}&senha=${pas}`;
+
+     this.endpoint+=`?matricula=${mat}&senha=${pas}`;
     fetch(this.endpoint)
     .then(res=>res.json())     
     .then(res=>{
